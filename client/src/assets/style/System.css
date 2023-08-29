@@ -1,0 +1,29 @@
+.system-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .system-name {
+    font-size: 1.5rem;
+    margin-right: 20px;
+  }
+  
+  .system-image {
+    width: 100px;
+    height: 100px;
+    background-color: greenyellow;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+
+    .system-name {
+        padding: 0em !important;
+        font-size: 1em
+    }
+
+    .system-container {
+        padding: 0;
+    }
+  }
+  

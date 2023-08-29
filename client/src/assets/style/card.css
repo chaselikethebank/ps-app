@@ -1,0 +1,104 @@
+
+.zone-card {
+  color: white;
+  padding: 20px;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 8px rgba(55, 185, 26, 0.1);
+  max-width: 80%; 
+  margin: 0 auto; 
+  min-width: 50vw;
+  overflow-y: auto; 
+  right: 0; 
+  top: 0; 
+  background-color: rgba(52, 52, 50, 0.939); 
+  align-items: center;
+  align-content: center;
+  align-items: center; 
+  justify-content: center; 
+  height: 100%; 
+}
+
+.zone-img {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  height: 50vh; 
+  align-items: center;
+  align-content: center;
+
+}
+
+.zone-img img {
+  width: 100%;
+  height: 100%; 
+  object-fit: cover; 
+  display: block;
+  max-width: 50vw;
+}
+
+.align-center{
+  align-items: center;
+}
+
+.zones-container {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  padding: 10%;
+  align-items: center;
+  min-width: 15vw;
+  overflow: none;
+
+}
+
+.zone-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.zone-card-section {
+  border-top: 1px solid #ccc;
+
+  border-radius: 5%;
+  padding-top: 20px;
+}
+
+.zone-card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.zone-card-grid-quantitative {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.util {
+ margin: auto;
+ padding: 10% 0;
+}
+
+.util div:hover {
+  background-color: #525252; 
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .zone-img {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  .zone-card-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    margin-top: 20px;
+
+}
+}
