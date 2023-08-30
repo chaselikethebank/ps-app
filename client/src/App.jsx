@@ -18,7 +18,8 @@ const zoneData = [
     daysPerWeek: 4,
     runTime: 18,
     desc: "A bit of a slope, sandy clay soil",
-    notes: 'anything over 20 min tends to runoff'
+    notes: 'anything over 20 min tends to runoff',
+    emoji: '🌼'
   },
   {
     num: 2,
@@ -29,7 +30,8 @@ const zoneData = [
     daysPerWeek: 3,
     runTime: 20,
     desc: "Flat terrain, well-draining soil",
-    notes: 'even coverage is important'
+    notes: 'even coverage is important',
+    emoji: '🌱'
   },
   {
     num: 3,
@@ -40,17 +42,20 @@ const zoneData = [
     daysPerWeek: 2,
     runTime: 15,
     desc: "Mixed soil with different plant types",
-    notes: 'adjustments needed seasonally'
+    notes: 'adjustments needed seasonally',
+    emoji: '🌲'
   }
 ];
 
 const userData = [
   {
-    systemName: "2987 Green Grass Dr",
+    systemName: "2987 Green Grass HQ",
     email: "2987GreenGrassDr@gmail.com",
     password: 'Greengrass1!',
     systemImg: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
-    city: 'Dallas'
+    city: 'Dallas, Tx',
+    weather: '☀️',
+    temp: 85
 
   }
 ]
@@ -64,13 +69,11 @@ function App() {
 
   return (
     <>
-      <div className='nav'>
-        <Navigation userData={userData}/>
-      </div>
+        {/* <Navigation userData={userData}/> */}
 
     
       <div className="main-grid">
-        <ZonesList zones={zoneData} onSelectZone={handleSelectZone} />
+        <ZonesList zones={zoneData} onSelectZone={handleSelectZone} userData={userData} />
         <ZoneCard selectedZone={selectedZone} />
       </div>
 

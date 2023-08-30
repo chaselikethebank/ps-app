@@ -4,10 +4,10 @@ import "../style/card.css";
 const ZoneCard = ({ selectedZone }) => {
   if (!selectedZone) {
     return (
-      <div className="zone-card">
-        <div className="zone-img">
-          <div className="center-message">Please select from your zones.</div>
-        </div>
+      <div className="please-card ">
+     
+     &#10024; Please select from your zones. &#10024;
+   
       </div>
     );
   }
@@ -15,9 +15,9 @@ const ZoneCard = ({ selectedZone }) => {
   return (
     <div className="zone-card">
       <h2>
-        Zone {selectedZone.num} : {selectedZone.name}
+        Zone {selectedZone.num} : {selectedZone.name} {selectedZone.emoji}
       </h2>
-      <h4>Run Time: {selectedZone.runTime} min</h4>
+      <h4>&#128166; Run Time: {selectedZone.runTime} min &#128166;</h4>
       <div className="zone-img">
         <img src={selectedZone.img} alt={selectedZone.name} />
       </div>
@@ -48,8 +48,8 @@ const ZoneCard = ({ selectedZone }) => {
           
           <div className="util">
             <div>
-              <h3>&#9999;&#65039;</h3>
-              <h3>Edit Zone</h3>
+              <h6>&#9999;&#65039;</h6>
+              <h6>Edit Zone</h6>
             </div>
           </div>
         </div>

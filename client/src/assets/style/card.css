@@ -1,16 +1,37 @@
 
 .zone-card {
-  color: white;
+  color:#000000;
+  border: 1px solid #e5e5e5;
+  background-color: #f7f7f8; 
+  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
+  border-radius: 0 12px 12px 0;
   padding: 20px;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 4px 8px rgba(55, 185, 26, 0.1);
-  max-width: 80%; 
-  margin: 0 auto; 
   min-width: 50vw;
   overflow-y: auto; 
   right: 0; 
   top: 0; 
-  background-color: rgba(52, 52, 50, 0.939); 
+  background-color: whitesmoke; 
+  align-items: center;
+  align-content: center;
+  align-items: center; 
+  justify-content: center; 
+  height: 100%; 
+}
+
+.please-card {
+  color:#374151;
+  border: 1px solid #e5e5e5;
+  background-color: #f7f7f8; 
+  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  padding: 20px;
+  /* max-width: 80%;  */
+  /* margin: auto;  */
+  min-width: 50vw;
+  overflow-y: auto; 
+  right: 0; 
+  top: 0; 
   align-items: center;
   align-content: center;
   align-items: center; 
@@ -19,11 +40,13 @@
 }
 
 .zone-img {
-  width: 100%;
+  /* width: 100%; */
   overflow: hidden;
-  border-radius: 8px;
   margin-bottom: 20px;
-  height: 50vh; 
+  border-radius: 12px;
+  height: auto; 
+  display:flex;
+  justify-content: center;
   align-items: center;
   align-content: center;
 
@@ -34,7 +57,8 @@
   height: 100%; 
   object-fit: cover; 
   display: block;
-  max-width: 50vw;
+  max-width: 60vw;
+  border-radius: 12px;
 }
 
 .align-center{
@@ -62,7 +86,7 @@
 .zone-card-section {
   border-top: 1px solid #ccc;
 
-  border-radius: 5%;
+  border-radius: 12px;
   padding-top: 20px;
 }
 
@@ -79,12 +103,13 @@
 
 .util {
  margin: auto;
- padding: 10% 0;
+ padding: 15% 0;
 }
 
 .util div:hover {
-  background-color: #525252; 
-  border-radius: 4px;
+  background-color: whitesmoke;
+  cursor: pointer; 
+  border-radius: 12px;
 }
 
 @media (max-width: 768px) {
@@ -92,7 +117,6 @@
     display: flex; 
     justify-content: center;
     align-items: center;
-    height: 50vh;
   }
   .zone-card-grid {
     display: grid;
@@ -101,4 +125,18 @@
     margin-top: 20px;
 
 }
+
+.zone-card, .please-card {
+  border-radius: 0 0 12px 12px;
+  min-height: auto;
+    /* padding: 8px; */
+    display: flex;
+    flex-direction: column;
+    /* border-left: 0px; */
+    padding: 15px;
+}
+
+
+
+
 }
