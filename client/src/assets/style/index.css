@@ -49,9 +49,7 @@ section {
   border-radius: 80%;
 }
 
-.system-name {
-  padding: 1em;
-}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -132,7 +130,7 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   background-color: #ffffff;
-  padding: 4em 0;
+  /* padding: 4em 0; */
 }
 
 .ps-mini {

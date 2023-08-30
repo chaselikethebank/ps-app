@@ -17,7 +17,11 @@ const ZoneCard = ({ selectedZone }) => {
       <h2>
         Zone {selectedZone.num} : {selectedZone.name} {selectedZone.emoji}
       </h2>
-      <h4>&#128166; Run Time: {selectedZone.runTime} min &#128166;</h4>
+      <h4>
+        {/* &#128166; */}
+         Run Time: {selectedZone.runTime} min 
+         &#128166;
+         </h4>
       <div className="zone-img">
         <img src={selectedZone.img} alt={selectedZone.name} />
       </div>

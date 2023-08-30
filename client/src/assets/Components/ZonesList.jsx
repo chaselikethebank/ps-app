@@ -15,8 +15,7 @@ const ZonesList = ({ zones, onSelectZone, userData }) => {
         
       ))}
 
-<div className='zones-list'> <a href="/zones/add">+ a zone </a> </div>
-<div className='zones-list'> <a href="/logout">Logout</a> </div>
+<div className='zones-item'> <a href="/zones/add">+ a zone </a> </div>
 
 
      

@@ -44,7 +44,46 @@ const zoneData = [
     desc: "Mixed soil with different plant types",
     notes: 'adjustments needed seasonally',
     emoji: '🌲'
+  },
+  {
+    num: 4,
+    name: "Vegetable Garden",
+    img: "https://images.ctfassets.net/zma7thmmcinb/6M9SHwNw1Vxa42yMxdg879/b0cbc4f4e22ddf526a9717e9ecef54c0/vertical-vegetable-gardening.jpg",
+    sun: 60,
+    type: 'Drip',
+    daysPerWeek: 5,
+    runTime: 12,
+    desc: "Raised bed garden with rich soil",
+    notes: 'monitor moisture levels regularly',
+    emoji: '🥕'
+  },
+  {
+    num: 5,
+    name: "Side Patio",
+    img: "https://www.sunset.com/wp-content/uploads/side-yards-dining-pr-0223-1200x600.jpg",
+    sun: 75,
+    type: 'Sprinkler',
+    daysPerWeek: 3,
+    runTime: 25,
+    desc: "Flat area with mixed soil composition",
+    notes: 'adjust run time during hot months',
+    emoji: '🌱'
+  },
+  {
+    num: 6,
+    name: "Side Bed",
+    img: "https://www.marthastewart.com/thmb/-j8GdlUc0Lv6KPL3SYJdVanXx4A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/flower-bed-getty-0323-2000-629cf34554e24ab1b5fc7bb3033071c9.jpg",
+    sun: 45,
+    type: 'Drip',
+    daysPerWeek: 4,
+    runTime: 18,
+    desc: "A bit of a slope, sandy clay soil",
+    notes: 'anything over 20 min tends to runoff',
+    emoji: '🌼'
   }
+  
+  
+  
 ];
 
 const userData = [
