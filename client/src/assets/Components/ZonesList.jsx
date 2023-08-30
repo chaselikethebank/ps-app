@@ -15,7 +15,7 @@ const ZonesList = ({ zones, onSelectZone, userData }) => {
         
       ))}
 
-<div className='zones-item'> <a href="/zones/add">+ a zone </a> </div>
+<div className='zones-item'> <a href="/zones/add">+ Zone </a> </div>
 
 
      
