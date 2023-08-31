@@ -4,8 +4,8 @@
   border: 1px solid #e5e5e5;
   background-color: #f7f7f8; 
   box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
-  border-radius: 0 12px 12px 0;
-  padding: 10px;
+  border-radius: 0 0 0 0;
+  padding: 2.5em 1em 1em 1em;
   min-width: 50vw;
   max-height: fit-content;
   overflow-y: auto; 
@@ -131,11 +131,8 @@
 .zone-card, .please-card {
   border-radius: 0 0 12px 12px;
   min-height: auto;
-    /* padding: 8px; */
     display: flex;
     flex-direction: column;
-    /* border-left: 0px; */
-    padding: 15px;
 }
 
 

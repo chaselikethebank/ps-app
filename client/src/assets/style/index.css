@@ -136,7 +136,7 @@ button:focus-visible {
 .ps-mini {
   width: 100px;
   height: 110px;
-  margin-right: 1em;
+  margin: 3em;
 }
 
 .react-logo {
@@ -147,6 +147,12 @@ button:focus-visible {
 
 .zone-render-container {
   background-color: #1a1a1a;
+}
+.my-zones {
+  color: #ececf1;
+  background-color: #202123;
+  margin: 0px !important;
+  padding-top: 1.4em;
 }
 
 .zones-list {
@@ -161,8 +167,8 @@ button:focus-visible {
   min-width: 20hw;
   padding: 5em 0 20em 0;
   border-left: 15px solid whitesmoke;
-  border-radius: 0 0 0 12px;
-  border: 1px black;
+  border-radius: 0 0 0 0;
+  border: 1px hsl(240deg 1.28% 30.59%);
   box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
 }
 
@@ -217,11 +223,14 @@ button:focus-visible {
 
   .zones-list {
     min-height: auto;
-    padding: 32px;
+    padding: 2em;
     display: flex;
     flex-direction: column;
     border-left: 0px;
     border-radius: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .zones-list div {
