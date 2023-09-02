@@ -129,7 +129,7 @@
 }
 
 .zone-card, .please-card {
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 0 0 ;
   min-height: auto;
     display: flex;
     flex-direction: column;

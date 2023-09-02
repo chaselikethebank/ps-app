@@ -3,8 +3,8 @@ import '../style/landing.css';
 import psMiniLogo from '../logos/ps-mini-logo.png'
 
 const LandingPage = ({ loggedIn, setLoggedIn }) => {
-    const [questionText, setQuestionText] = useState('"When should I water my lawn?"')
-    const [answerText, setAnswerText] = useState('"Before it dies... and for 18 minutes, 3 times a week"')
+    const [questionText, setQuestionText] = useState("When should I water my lawn?")
+    const [answerText, setAnswerText] = useState("Before it dies... and for 18 minutes, 3 times a week")
 
   const prompts = [
     {

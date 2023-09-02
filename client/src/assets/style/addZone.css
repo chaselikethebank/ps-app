@@ -1,46 +1,90 @@
 .add-zone-container {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 1.5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1em auto;
-    width: 80%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em auto;
+  width: 80%;
+}
+
+
+.add-zone-container h2 {
+  font-size: 1.5rem;
+}
+
+.add-zone-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.add-zone-container input,
+select,
+textarea {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+}
+
+.add-zone-container button {
+  background-color: #202123;
+
+  color: #ececf1;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-zone-container button:hover {
+  background-color: #343541;
+
+}
+
+.error {
+  display: flex;
+  max-width: 45vw;
+  color: #ff0000; 
+  font-size: 14px; 
+  margin: 5px; 
+  padding: 1em
+}
+
+.error::after, .error::before{
+  content: "⚠️"; 
+  color: #ff0000; 
+  font-size: 20px; 
+  margin: 5px; 
+}
+
+
+.message-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.2em;
+}
+.message {
+  text-align: center;
+  background-color: #202123;
+  color: white;
+  padding: 2em;
+  border-radius: 12px;
+  animation: fadeOut 4s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
   }
-  
-  .add-zone-container h2 {
-    font-size: 1.5rem;
+  100% {
+    opacity: 0;
   }
-  
-  .add-zone-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 1em;
-  }
-  
-  .add-zone-container input,select, textarea {
-    margin: 0.5em 0;
-    padding: 0.5em;
-    width: 100%;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-  }
-  
-  .add-zone-container button {
-    background-color: #343541;
-    color: #ececf1;
-    border: none;
-    border-radius: 4px;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .add-zone-container button:hover {
-    background-color: #202123;
-  }
-  
+}

@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../style/addZone.css";
 
-const AddZone = ({oldZoneData}) => {
+const AddZone = ({ oldZoneData, backendUrl, onSubmit }) => {
+  const [error, setError] = useState("");
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [isDuplicate, setIsDuplicate] = useState(false);
+  const [oldZoneNums, setOldZoneNums] = useState([]);
   const [zoneData, setZoneData] = useState({
     num: "",
     name: "",
@@ -15,42 +19,91 @@ const AddZone = ({oldZoneData}) => {
     emoji: "",
   });
 
-   
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setZoneData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    console.log("Form data:", zoneData);
+    // console.log("Form data:", zoneData);
   };
 
-  const handleSubmit = (event) => {
+  const initializeOldZoneNums = () => {
+    const nums = oldZoneData.map((zone) => zone.num);
+    setOldZoneNums(nums);
+  };
+
+  useEffect(() => {
+    initializeOldZoneNums();
+  }, [oldZoneData])
+
+  useEffect(() => {
+    initializeOldZoneNums();
+  }, []);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form data:", zoneData);
+  
+    const isDuplicate = oldZoneNums.includes(parseInt(zoneData.num));
+  
+    if (isDuplicate) {
+      setError(
+        "That Zone Number already exists in your system. Try selecting a zone number that doesn't already represent a zone in your system."
+      );
+    } else {
+      console.log("New Data:", zoneData);
+  
+      // Amendment: Removed the curly brace here
+      onSubmit(zoneData);
+  
+      setZoneData({
+        num: "",
+        name: "",
+        img: "",
+        sun: "",
+        type: "",
+        daysPerWeek: "",
+        runTime: "",
+        desc: "",
+        notes: "",
+        emoji: "",
+      });
+      
+      // Amendment: Removed the curly brace here
+      setError("");
+      setSubmissionStatus("success");
+      setTimeout(() => {
+        setSubmissionStatus(null);
+      }, 4000);
+    }
   };
 
-  //need to solve for validating duplicates based on the prev zone numbers that have been allocated
-  const currentZoneNum = oldZoneData.map((zone) => zone.num);
-    // console.log(currentZoneNum);
+  const renderErrorMessage = error && <div className="error">{error}</div>;
 
+  const renderSuccessMessage = submissionStatus === "success" && (
+    <div className="message-container">
+      <div className="message">Your Zone has been added! 🎉</div>
+    </div>
+  );
 
   return (
-
-
     <div className="add-zone-container">
       <h2>Create a New Zone</h2>
+      {renderErrorMessage}
+
       <form onSubmit={handleSubmit}>
         <label>
           Zone Number:
           <input
             type="number"
             name="num"
+            placeholder="7"
             value={zoneData.num}
             onChange={handleInputChange}
             required
           />
         </label>
+
         <br />
 
         <label>
@@ -58,9 +111,21 @@ const AddZone = ({oldZoneData}) => {
           <input
             type="text"
             name="name"
+            placeholder="Back Beds"
             value={zoneData.name}
             onChange={handleInputChange}
             required
+          />
+        </label>
+        <br />
+
+        <label>
+          Image URL:
+          <input
+            type="text"
+            name="img"
+            value={zoneData.img}
+            onChange={handleInputChange}
           />
         </label>
         <br />
@@ -70,6 +135,7 @@ const AddZone = ({oldZoneData}) => {
           <select
             type="number"
             name="sun"
+            placeholder="80"
             value={zoneData.sun}
             onChange={handleInputChange}
             required
@@ -90,6 +156,7 @@ const AddZone = ({oldZoneData}) => {
           <select
             value={zoneData.type}
             name="type"
+            placeholder="Spray"
             onChange={handleInputChange}
             required
           >
@@ -106,6 +173,7 @@ const AddZone = ({oldZoneData}) => {
           <select
             value={zoneData.daysPerWeek}
             name="daysPerWeek"
+            placeholder="3"
             onChange={handleInputChange}
             required
           >
@@ -126,6 +194,7 @@ const AddZone = ({oldZoneData}) => {
           <textarea
             type="text"
             name="desc"
+            placeholder="Variety of flowers, both perennials and annuals."
             value={zoneData.desc}
             onChange={handleInputChange}
           />
@@ -137,6 +206,7 @@ const AddZone = ({oldZoneData}) => {
           <textarea
             type="text"
             name="notes"
+            placeholder="Sandy soil, can take a lot of water quickly"
             value={zoneData.notes}
             onChange={handleInputChange}
           />
@@ -145,16 +215,30 @@ const AddZone = ({oldZoneData}) => {
 
         <label>
           Emoji:
-          <input
-            type="text"
+          <select
             name="emoji"
             value={zoneData.emoji}
             onChange={handleInputChange}
-          />
+          >
+            <option value="">Select an emoji</option>
+            <option value="🌸">🌸 Cherry Blossom</option>
+            <option value="🌼">🌼 Blossom</option>
+            <option value="🌷">🌷 Tulip</option>
+            <option value="🌹">🌹 Rose</option>
+            <option value="🌺">🌺 Hibiscus</option>
+            <option value="🌻">🌻 Sunflower</option>
+            <option value="🌿">🌿 Herb</option>
+            <option value="💐">💐 Bouquet</option>
+            <option value="🍃">🍃 Leaves</option>
+            <option value="🌱">🌱 Sprout</option>
+            <option value="🌳">🌳 Tree</option>
+          </select>
         </label>
         <br />
 
         <button type="submit">Submit Zone</button>
+        {renderSuccessMessage}
+        {renderErrorMessage}
       </form>
     </div>
   );

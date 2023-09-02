@@ -2,14 +2,15 @@ import React from 'react';
 import System from './System';
 import AddZone from './AddZone';
 
-const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
+const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick, backendUrl }) => {
 
  
   return (
-    <div>
-<System userData={userData}/>
-<h5 className='my-zones'>&#127968; My Zones: </h5>
-
+    <div className='zones-plus'>
+<div className='my-zones'>
+  <h4>🔑</h4>
+  <h5>My Zones:</h5>
+</div>
     <div className='zones-list'>
 
       {zones.map((zone) => (
@@ -25,6 +26,9 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
 
      
     </div>
+    {/* write conditional rendering based on media query for display none when in mobile and vice verse on the other vew for the other component */}
+{/* <System userData={userData}/> */}
+
  </div>
     
   );
