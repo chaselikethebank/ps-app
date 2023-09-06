@@ -1,17 +1,23 @@
 import React from "react";
-import "../style/card.css";
-import "../style/increDecre.css";
+import "../style/window.css";
+import "../style/barchart.css"
+// import "../style/increDecre.css";
 import { Chart } from "chart.js";
 import { Bar } from "recharts";
 import BarChart from "./BarChart";
 import { useState } from "react";
+
 
 const ZoneWindow = ({ selectedZone, zoneData }) => {
   const [chartData, setChartData] = useState({
     labels: zoneData.map((zone) => zone.num),
     datasets: [{ 
         label: "Run Times", 
-        data: zoneData.map((zone) => zone.runTime)}],
+        data: zoneData.map((zone) => zone.runTime),}],
+        backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+        ]
+        
   });
 
   if (!selectedZone) {
@@ -21,7 +27,7 @@ const ZoneWindow = ({ selectedZone, zoneData }) => {
       </div>
     );
   }
-  console.log([zoneData]);
+  // console.log([zoneData]);
 
   return (
     <div className="main">

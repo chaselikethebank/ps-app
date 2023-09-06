@@ -55,6 +55,9 @@
 
 .grid-card:nth-child(4) {
   grid-area: c5;
+  /* justify-content: center; */
+  /* align-items: center; */
+
 }
 
 .grid-card:nth-child(5) {
