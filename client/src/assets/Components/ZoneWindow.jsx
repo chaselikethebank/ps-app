@@ -64,7 +64,7 @@ const ZoneWindow = ({ selectedZone, zoneData }) => {
       </div>
 
       <div className="grid-card ">
-      <BarChart zoneData={zoneData}/>
+      {/* <BarChart zoneData={zoneData}/> */}
         
       </div>
 
