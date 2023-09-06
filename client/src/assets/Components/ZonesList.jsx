@@ -9,7 +9,7 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick, backendUrl }
     <div className='zones-plus'>
 <div className='my-zones'>
   <h4>🔑</h4>
-  <h5>My Zones:</h5>
+  <h5>My Zones</h5>
 </div>
     <div className='zones-list'>
 

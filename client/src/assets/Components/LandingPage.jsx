@@ -1,24 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import '../style/landing.css';
-import psMiniLogo from '../logos/ps-mini-logo.png'
+import React, { useState, useEffect } from "react";
+import "../style/landing.css";
+import psMiniLogo from "../logos/ps-mini-logo.png";
 
 const LandingPage = ({ loggedIn, setLoggedIn }) => {
-    const [questionText, setQuestionText] = useState("When should I water my lawn?")
-    const [answerText, setAnswerText] = useState("Before it dies... and for 18 minutes, 3 times a week")
+  const [questionText, setQuestionText] = useState(
+    "When should I water my lawn?"
+  );
+  const [answerText, setAnswerText] = useState(
+    "Before it dies... and for 18 minutes, 3 times a week"
+  );
 
   const prompts = [
     {
       questionText: "When should I water my lawn?",
-      answerText: "Before it dies... and for 18 minutes, 3 times a week"
+      answerText: "Before it dies... and for 18 minutes, 3 times a week",
     },
     {
       questionText: "Why does your landscaping look so good?",
-      answerText: "I use my Pro-Sprinkler app to adjust run times based on the seasons and evapotranspiration requirements."
-    }
+      answerText:
+        "I use my Pro-Sprinkler app to adjust run times based on the seasons and evapotranspiration requirements.",
+    },
   ];
 
   const [showAnswer, setShowAnswer] = useState(false);
-  const [typedQuestion, setTypedQuestion] = useState('');
+  const [typedQuestion, setTypedQuestion] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleLoginClick = () => {
@@ -38,39 +43,43 @@ const LandingPage = ({ loggedIn, setLoggedIn }) => {
       setTimeout(() => {
         setTypedQuestion(questionText.slice(0, currentIndex + 1));
         setCurrentIndex(currentIndex + 1);
-      }, 90); 
+      }, 90);
     }
   }, [currentIndex]);
 
-
   useEffect(() => {
     if (prompts[0].questionText == prompts[0].questionText) {
-        setTimeout(() => {
-            setQuestionText(prompts[1].questionText)
-        }, 4000) 
+      setTimeout(() => {
+        setQuestionText(prompts[1].questionText);
+      }, 4000);
     }
-  }, [prompts])
+  }, [prompts]);
 
   return (
     <div>
-        <div className='circle'></div>
-
       <div className="landing-content">
-
-        
-    
         <div className="text-container">
+          {/* <svg   xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" fill="#53cef5" stroke="black" strokeWidth="2" />
+        <circle cx="80" cy="50" r="40" fill="white" stroke="black" strokeWidth="2" />
+      </svg> */}
+
           <h1 className="question">{typedQuestion}</h1>
-          <h2 className={`answer ${showAnswer ? 'fade-in' : ''}`}>{answerText}</h2>
+          <h2 className={`answer ${showAnswer ? "fade-in" : ""}`}>
+            {answerText}
+          </h2>
         </div>
         <div className="start-side">
           <div>
-        <img className="ps-mini" src={psMiniLogo} alt="Pro-Sprinkler logo" />
-
+            <img
+              className="ps-mini"
+              src={psMiniLogo}
+              alt="Pro-Sprinkler logo"
+            />
           </div>
           <h2>Get Started</h2>
-          
-          <div className='btn-container'>
+
+          <div className="btn-container">
             <button className="get-started" onClick={handleLoginClick}>
               Login
             </button>
@@ -90,4 +99,3 @@ const LandingPage = ({ loggedIn, setLoggedIn }) => {
 };
 
 export default LandingPage;
-

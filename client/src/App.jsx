@@ -4,13 +4,11 @@ import Navigation from "./assets/Components/Navigation";
 import Footer from "./assets/Components/Footer";
 import SiteBuild from "./assets/Components/SiteBuild";
 import ZonesList from "./assets/Components/ZonesList";
-import ZoneCard from "./assets/Components/ZoneCard";
+import ZoneWindow from "./assets/Components/ZoneWindow";
 import AddZone from "./assets/Components/AddZone";
 import { useState, useEffect } from "react";
 import System from "./assets/Components/System";
 import LandingPage from "./assets/Components/LandingPage";
-// import zoneDB from "../../server/src/local_db/zoneData.json"
-// import userDB from "../../server/src/local_db/userData.json"
 
 function App() {
   const [selectedZone, setSelectedZone] = useState(null);
@@ -92,6 +90,8 @@ function App() {
     <>
       {loggedIn ? (
         <div>
+            <System userData={userData} />
+
           <div className="main-grid">
             <ZonesList
               zones={zoneData}
@@ -108,7 +108,7 @@ function App() {
                 onSubmit={handleAddZone}
               />
             ) : (
-              <ZoneCard selectedZone={selectedZone} />
+              <ZoneWindow zoneData={zoneData} selectedZone={selectedZone} />
             )}
           </div>
           {/* <div className="footer">
@@ -116,7 +116,6 @@ function App() {
           </div> */}
           <div className="break">
             {" "}
-            <System userData={userData} />
           </div>
         </div>
       ) : (

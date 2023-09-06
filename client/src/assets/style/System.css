@@ -7,7 +7,7 @@
   cursor: pointer;
   transition: background-color 0.2s;
   position: relative;
-  top: 10px;
+  /* top: 10px; */
 }
 
 .logout:hover {
@@ -24,7 +24,7 @@
   box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
   border-radius: 0 0 0 0;
   margin: 0 !important;
-  padding: 1.5em 1em 1.5em 10em;
+  padding: 1em;
   margin-top: 1em;
   flex-direction: row-reverse;
   justify-content: space-evenly;
@@ -32,10 +32,10 @@
 }
 
 .system-name {
-  font-size: 1.5rem;
-  position: relative;
-  top: 8px;
-  padding: 0 0 0 3em;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .system-image {
@@ -66,15 +66,16 @@
 
 @media (max-width: 768px) {
   .system-name {
-    padding: 0em !important;
-    font-size: 1em;
+    /* padding: .5em !important; */
+    font-size: .9em;
     display: flex;
     flex-direction: column;
     align-items: center;
+  justify-content: center;
   }
 
   .system-container {
-    padding: 1.5em;
+    padding: .5em;
     margin-top: 1em;
     flex-direction: row-reverse;
     justify-content: space-evenly;
@@ -100,10 +101,7 @@
   }
 
   .logout {
-    position: relative;
-    top: 0px;
-    padding: 0.7em;
-    margin: 0.5em;
-    right: 20px;
+    font-size: .8em;
+   
   }
 }
