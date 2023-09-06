@@ -4,8 +4,16 @@ import "../style/increDecre.css";
 import { Chart } from "chart.js";
 import { Bar } from "recharts";
 import BarChart from "./BarChart";
+import { useState } from "react";
 
 const ZoneWindow = ({ selectedZone, zoneData }) => {
+  const [chartData, setChartData] = useState({
+    labels: zoneData.map((zone) => zone.num),
+    datasets: [{ 
+        label: "Run Times", 
+        data: zoneData.map((zone) => zone.runTime)}],
+  });
+
   if (!selectedZone) {
     return (
       <div className="please-card ">
@@ -64,7 +72,7 @@ const ZoneWindow = ({ selectedZone, zoneData }) => {
       </div>
 
       <div className="grid-card ">
-      {/* <BarChart zoneData={zoneData}/> */}
+      <BarChart chartData={chartData}/>
         
       </div>
 
