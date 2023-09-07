@@ -1,3 +1,6 @@
+@import './colors.css';
+
+
 .add-zone-container {
   background-color: #ffffff;
   border-radius: 12px;
@@ -27,10 +30,12 @@
 select,
 textarea {
   margin: 0.5em 0;
-  padding: 0.5em;
+  padding: .5em ;
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--back);
+  color: #000000;
   border-radius: 4px;
+  font-weight: 400;
 }
 
 .add-zone-container button {

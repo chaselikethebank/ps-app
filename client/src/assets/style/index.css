@@ -1,8 +1,10 @@
+@import './colors.css';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  background-color: black;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -81,15 +83,17 @@ button:hover {
 
 button {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 3% 7%;
   font-size: 16px;
   color: #ececf1;
   border-radius: 12px;
+  margin: .3em;
   border: 1px solid #4d4d4f;
   box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
   font-weight: 500;
   background-color: #202123;
   cursor: pointer;
+  min-width: 90%;
   transition: background-color 0.25s, border-color 0.25s;
 }
 
@@ -170,6 +174,10 @@ button:focus-visible {
   padding: .5em;
 }
 
+.sticky {
+  margin-top: 20vh; 
+}
+
 .zones-plus {
   min-height: 89vh;
   background-color: #202123;
@@ -188,23 +196,30 @@ button:focus-visible {
   min-height: fit-content;
   justify-content: space-between;
   min-width: 25vw;
-  padding: 5em 0 10em 0;
+  padding: 1em 0 1em 0;
   border-left: 15px solid whitesmoke;
   border-radius: 0 0 0 0;
+  /* fix this later */
   border: 1px hsl(240deg 1.28% 30.59%);
-  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
 }
 
 .zones-list div {
   cursor: pointer;
   transition: background-color 0.2s;
-  padding: 6% 10% 6% 10%;
-  border: 1px black;
-  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
+  padding: 3% 7%;
+  
+  /* box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1); */
   border-radius: 12px;
-  margin: 6px;
+  margin: .3em;
   position: relative;
   align-items: right;
+  border: 1px solid #4d4d4f;
+  min-width: 90%
+
+}
+
+.zones-list div ::before{
+  content: "";
 }
 
 .zones-list div:hover {
@@ -214,6 +229,17 @@ button:focus-visible {
 
 .zones-item {
   padding: 2em;
+}
+
+.zone-item::before {
+  width: 12px;
+  height: 12px;
+  background-color: var(--git-green);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
 }
 
 @media (prefers-color-scheme: light) {
@@ -269,7 +295,7 @@ font-size: .9em;
   .zones-list div {
     cursor: pointer;
     transition: background-color 0.2s;
-    padding: 2% 5%;
+    padding: 2% 4%;
     border-radius: 12px;
     border: 1px solid #4d4d4f;
   }
@@ -288,7 +314,4 @@ font-size: .9em;
 
   }
 
-  .please-card {
-    min-height: 70vh;
-  }
 }

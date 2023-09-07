@@ -90,8 +90,9 @@ function App() {
     <>
       {loggedIn ? (
         <div>
+          <div className="sticky">
             <System userData={userData} />
-
+            </div>
           <div className="main-grid">
             <ZonesList
               zones={zoneData}
@@ -108,7 +109,7 @@ function App() {
                 onSubmit={handleAddZone}
               />
             ) : (
-              <ZoneWindow zoneData={zoneData} selectedZone={selectedZone} />
+              <ZoneWindow zoneData={zoneData} selectedZone={selectedZone} userData={userData}/>
             )}
           </div>
           {/* <div className="footer">

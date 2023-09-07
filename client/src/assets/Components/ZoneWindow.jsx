@@ -1,33 +1,44 @@
 import React from "react";
 import "../style/window.css";
 import "../style/barchart.css"
-// import "../style/increDecre.css";
+import "../style/dash.css"
+
 import { Chart } from "chart.js";
 import { Bar } from "recharts";
 import BarChart from "./BarChart";
 import { useState } from "react";
+import ZoneSnippets from "./ZoneSnippets";
+import Dash from "./Dash";
 
 
-const ZoneWindow = ({ selectedZone, zoneData }) => {
+const ZoneWindow = ({ selectedZone, zoneData, userData }) => {
   const [chartData, setChartData] = useState({
     labels: zoneData.map((zone) => zone.num),
-    datasets: [{ 
-        label: "Run Times", 
-        data: zoneData.map((zone) => zone.runTime),}],
+    datasets: [
+      {
+        label: "Run Times",
+        data: zoneData.map((zone) => zone.runTime),
         backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 0, 0, 0.8)",   
+          "rgba(0, 0, 255, 0.8)",  
+          "#1cff01",  
+          "rgba(255, 0, 255, 0.8)", 
+          "rgba(255, 165, 0, 0.8)"  
         ]
-        
+      }
+    ]
   });
+  
 
   if (!selectedZone) {
     return (
-      <div className="please-card ">
-        &#10024; Please select from your zones. &#10024;
+      <div className="dash-main">
+        <Dash zoneData={zoneData} userData={userData}/>
       </div>
     );
   }
-  // console.log([zoneData]);
+  console.log([zoneData]);
+  console.log(selectedZone.runTime, "min")
 
   return (
     <div className="main">
@@ -41,44 +52,13 @@ const ZoneWindow = ({ selectedZone, zoneData }) => {
       <div className="grid-card square-img">
         <img src={selectedZone.img} />
       </div>
+      <div className="grid-card ">
+      <ZoneSnippets selectedZone={selectedZone}/>
 
-      <div className="grid-card no-pad det-print title">
-        <div className="odd">
-          <div className="left">Cycle time</div>
-          <div className="center">
-            <div className="font-up">{selectedZone.runTime} </div>
-            min
-          </div>
-          <div className="posi-change"> ^ 14% over last month</div>
-        </div>
-        <div className="even">
-          <div className="left">Cycles per week</div>
-          <div className="center">
-            <div className="font-up">{selectedZone.runTime} </div>
-            days
-          </div>
-          <div className="posi-change"> 0% over last month</div>
-        </div>
-        <div className="odd">
-          <div className="left">Monthly ET requirements</div>
-          <div className="center">
-            <div className="font-up">4.5 </div>
-            inches
-          </div>
-          <div className="posi-change"> ^ 14% over last month</div>
-        </div>
-        <div className="even">
-          <div className="left">Zone Cost</div>
-          <div className="center">
-            <div className="font-up">$4 </div>
-            per month
-          </div>
-          <div className="posi-change"> 0% over last month</div>
-        </div>
+        
       </div>
 
       <div className="grid-card ">
-      <BarChart chartData={chartData}/>
         
       </div>
 

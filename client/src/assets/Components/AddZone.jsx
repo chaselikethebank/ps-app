@@ -35,7 +35,7 @@ const AddZone = ({ oldZoneData, backendUrl, onSubmit }) => {
 
   useEffect(() => {
     initializeOldZoneNums();
-  }, [oldZoneData])
+  }, [oldZoneData]);
 
   useEffect(() => {
     initializeOldZoneNums();
@@ -43,19 +43,35 @@ const AddZone = ({ oldZoneData, backendUrl, onSubmit }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
+    const num = parseInt(zoneData.num);
+    const sun = parseInt(zoneData.sun);
+    const daysPerWeek = parseInt(zoneData.daysPerWeek);
+    const runTime = parseInt(zoneData.runTime);
+    console.log(num, sun, daysPerWeek);
+
     const isDuplicate = oldZoneNums.includes(parseInt(zoneData.num));
-  
+
     if (isDuplicate) {
       setError(
         "That Zone Number already exists in your system. Try selecting a zone number that doesn't already represent a zone in your system."
       );
     } else {
-      console.log("New Data:", zoneData);
+      console.log("New Data:", {
+        ...zoneData, 
+        num,
+        sun,
+        daysPerWeek,
+        runTime
+      });
   
-      // Amendment: Removed the curly brace here
-      onSubmit(zoneData);
-  
+      // onSubmit({
+      //   ...zoneData, 
+      //   num,
+      //   sun,
+      //   daysPerWeek,
+      // });
+
       setZoneData({
         num: "",
         name: "",
@@ -68,8 +84,14 @@ const AddZone = ({ oldZoneData, backendUrl, onSubmit }) => {
         notes: "",
         emoji: "",
       });
+      onSubmit({...zoneData, 
+        num,
+        sun,
+        daysPerWeek});
       
-      // Amendment: Removed the curly brace here
+
+
+
       setError("");
       setSubmissionStatus("success");
       setTimeout(() => {

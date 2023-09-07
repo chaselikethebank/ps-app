@@ -1,11 +1,6 @@
-.center {
-  align-items: center;
-  color: blue;
-  display: flex;
-  font-size: 1.2em;
-  justify-content: center;
-  font-weight: 700;
-}
+@import "./colors.css";
+
+
 
 .det-print {
   display: grid;
@@ -23,10 +18,7 @@
   padding: 1em;
 }
 
-.even {
-  background-color: #ffffff;
-  padding: 0.5em;
-}
+
 
 .font-up {
   font-size: 1.8em;
@@ -34,14 +26,16 @@
 }
 
 .grid-card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
+  background-color: var(--back);
+  /* box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1); */
   padding: 0.5em;
   /* border-radius: 12px; */
 }
 
 .grid-card:nth-child(1) {
   grid-area: c1;
+  background-color: var(--ground);
+  color: var(--font);
 }
 
 .grid-card:nth-child(2) {
@@ -51,13 +45,30 @@
 
 .grid-card:nth-child(3) {
   grid-area: c3;
+  background-color: var(--ground) !important;
+  color: var(--font);
+  padding: .8em;
+
+}
+
+.snippet {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: .5em;
+  margin: .5em;
+}
+
+.even, .odd {
+
 }
 
 .grid-card:nth-child(4) {
   grid-area: c5;
   /* justify-content: center; */
   /* align-items: center; */
-
 }
 
 .grid-card:nth-child(5) {
@@ -81,10 +92,7 @@
 }
 
 .main {
-  background-color: #0055ff;
-  background-color: #202123;
-  background-color: #ececec;
-
+  background-color: var(--hover);
 
   display: grid;
   gap: 0.5em;
@@ -107,29 +115,8 @@
   padding: 0 !important;
 }
 
-.odd {
-  background-color: #fbfbff;
-  padding: 0.5em;
-}
 
-.please-card {
-  align-content: center;
-  align-items: center;
-  align-items: center;
-  background-color: #f7f7f8;
-  border: 1px solid #e5e5e5;
-  border-radius: 0 12px 12px 0;
-  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
-  color: #374151;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  min-width: 50vw;
-  overflow-y: auto;
-  padding: 20px;
-  right: 0;
-  top: 0;
-}
+
 
 .posi-change {
   color: #39b77c;
@@ -149,8 +136,6 @@
   min-height: 25vh;
   max-width: 100%;
   padding: 0 !important;
- 
- 
 }
 
 .square-img img {
@@ -167,7 +152,7 @@
 }
 
 .text {
-  color: #202123;
+  color: var(--font);
   font-weight: 400;
 }
 

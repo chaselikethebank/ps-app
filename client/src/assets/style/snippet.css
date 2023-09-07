@@ -1,0 +1,48 @@
+@import './colors.css';
+
+
+  .data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    
+  }
+  
+  .data-block {
+    background-color: var(--card);
+    color: var(--font);
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    width: calc(50% - 10px); 
+    margin-bottom: 20px;
+  }
+  
+  .left {
+    font-weight: bold;
+  }
+  
+  .center {
+    align-items: center;
+  color: var(--git-blue);
+  display: flex;
+  font-size: 1.5em;
+  justify-content: center;
+  font-weight: 700;
+
+  }
+  
+  .font-up {
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+  
+  .posi-change {
+    color: var(--green);
+  }
+  
+  .data-block.even {
+    background-color: var(--high);
+  }
+  

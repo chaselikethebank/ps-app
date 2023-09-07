@@ -59,10 +59,7 @@ const LandingPage = ({ loggedIn, setLoggedIn }) => {
     <div>
       <div className="landing-content">
         <div className="text-container">
-          {/* <svg   xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="40" fill="#53cef5" stroke="black" strokeWidth="2" />
-        <circle cx="80" cy="50" r="40" fill="white" stroke="black" strokeWidth="2" />
-      </svg> */}
+          
 
           <h1 className="question">{typedQuestion}</h1>
           <h2 className={`answer ${showAnswer ? "fade-in" : ""}`}>

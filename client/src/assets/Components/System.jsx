@@ -23,9 +23,9 @@ const System = ({
        
         {city} {state} {weather} {temp}°<br></br>
         {formattedDate}
-        <div>
+        {/* <div>
           {systemName}
-        </div>
+        </div> */}
       </h4>
 
       <a href="/" className="logout">

@@ -1,3 +1,6 @@
+@import './colors.css';
+
+
 .logout {
   background-color: #202123;
   color: #ececf1 !important;
@@ -8,6 +11,7 @@
   transition: background-color 0.2s;
   position: relative;
   /* top: 10px; */
+  border: 1px solid #4d4d4f;
 }
 
 .logout:hover {
@@ -16,20 +20,24 @@
 }
 
 .system-container {
+  background-color: var(--back);
+  color: var(--font);
   display: flex;
   align-items: center;
-  position: relative;
-  background-color: white;
-  border: 1px solid#e5e5e5;
-  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
-  border-radius: 0 0 0 0;
+  position: fixed; /* Change to 'fixed' */
+  top: 0; /* Stick to the top */
+  left: 0; /* Optionally, stick to the left */
+  right: 0; /* Optionally, stick to the right */
   margin: 0 !important;
   padding: 1em;
   margin-top: 1em;
   flex-direction: row-reverse;
   justify-content: space-evenly;
   max-height: 20vh;
+  min-height: 20vh;
+  z-index: 999;
 }
+
 
 .system-name {
   font-size: 1.2rem;
