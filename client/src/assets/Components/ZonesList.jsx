@@ -17,6 +17,7 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
 
       {zones.map((zone) => (
         <div key={zone.num} onClick={() => onSelectZone(zone)} className='zone-item '>
+          
          {zone.name}
         </div>
         

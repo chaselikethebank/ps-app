@@ -1,43 +1,45 @@
 import React from "react";
 import "../style/window.css"
 import "../style/snippet.css"
+import EditIcon from '@mui/icons-material/ModeEditOutlineOutlined';
+import Scope from '@mui/material/ScopedCssBaseline';
+
+
 
 const ZoneSnippets = ({ selectedZone }) => {
 
   return (
-    <div >
-      <div className="odd">
-        <div className="left">Cycle time</div>
-        <div className="center">
-          <div className="font-up">{selectedZone.runTime} </div>
-          min
-        </div>
-        <div className="posi-change"> ^ 14% over last month</div>
+    <div className="data-container">
+    <div className="data-block">
+      Run time: {selectedZone.runTime} min
       </div>
-      <div className="even">
-        <div className="left">Cycles per week</div>
-        <div className="center">
-          <div className="font-up">{selectedZone.runTime} </div>
-          days
-        </div>
-        <div className="posi-change"> 0% over last month</div>
-      </div>
-      <div className="odd">
-        <div className="left">Monthly ET </div>
-        <div className="center">
-          <div className="font-up">4.5 </div>
-          inches
-        </div>
-        <div className="posi-change"> ^ 14% over last month</div>
-      </div>
-      <div className="even">
-        <div className="left">Zone Cost</div>
-        <div className="center">
-          <div className="font-up">$4 </div>
-          per month
-        </div>
-        <div className="posi-change"> 0% over last month</div>
-      </div>
+      <div className="data-block">
+      Cycles per week: {selectedZone.daysPerWeek }
+    </div>
+    <div className="data-block">
+      Type: {selectedZone.type } zone
+    </div>
+    <div className="data-block">
+      Sun Exposure: {selectedZone.sun }%
+    </div>
+    <div className="data-block">
+      Monthly ET Req: 3.4''
+    </div>
+    <div className="data-block">
+      $3.55 / month
+    </div>
+    <div className="data-block">
+      Desc: {selectedZone.desc}
+    </div>
+    <div className="data-block">
+      Notes: {selectedZone.notes}
+    </div>
+    <button className="data-block">
+      Edit zone 
+      <Scope>
+      <EditIcon />
+      </Scope>
+    </button>
     </div>
   );
 };

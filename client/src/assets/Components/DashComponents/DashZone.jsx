@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const DashZone = ({ zoneData }) => {
   return (
@@ -6,8 +6,7 @@ const DashZone = ({ zoneData }) => {
       <ul>
         {zoneData.map((zone) => (
           <li key={zone.id}>
-            Name: {zone.name} Zone #{zone.num} Cycle time: {zone.runTime} Cycles
-            per week: {zone.daysPerWeek}
+            Name: {zone.name} Zone #{zone.num} Cycle time: {zone.runTime} Cycles per week: {zone.daysPerWeek}
           </li>
         ))}
       </ul>

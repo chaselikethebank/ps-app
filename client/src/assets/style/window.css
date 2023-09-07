@@ -1,6 +1,15 @@
 @import "./colors.css";
 
+.data-blocks{
+  background-color: var(--card);
+    color: var(--font);
+    padding: .5em;
+    border: 1px solid var(--border);
+    width: 100%;
+ 
+    border-radius: 5px;
 
+}
 
 .det-print {
   display: grid;
@@ -30,11 +39,13 @@
   /* box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1); */
   padding: 0.5em;
   /* border-radius: 12px; */
+  border-radius: 5px;
+
 }
 
 .grid-card:nth-child(1) {
   grid-area: c1;
-  background-color: var(--ground);
+  background-color: var(--back);
   color: var(--font);
 }
 
@@ -45,21 +56,13 @@
 
 .grid-card:nth-child(3) {
   grid-area: c3;
-  background-color: var(--ground) !important;
+  background-color: var(--back);
   color: var(--font);
-  padding: .8em;
-
-}
-
-.snippet {
-  display: flex;
-  flex-direction: column;
-  padding: 0.5em;
-  border: 1px solid var(--border);
-  border-radius: 12px;
   padding: .5em;
-  margin: .5em;
+
 }
+
+
 
 .even, .odd {
 
@@ -92,7 +95,7 @@
 }
 
 .main {
-  background-color: var(--hover);
+  background-color: var(--high);
 
   display: grid;
   gap: 0.5em;
@@ -125,8 +128,6 @@
 
 .space-between {
   align-items: center;
-  background-color: #ffffff;
-  color: #202123;
   display: flex;
   justify-content: space-between;
 }
@@ -158,8 +159,27 @@
 
 .title {
   /* font-size: 1.5em; */
+  background-color: var(--card);
+    color: var(--font);
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+   
+    margin-bottom: 20px;
   color: #202123;
   font-weight: 600;
+  padding: 1em;
+}
+
+.desc-card {
+  background-color: var(--card);
+    color: var(--font);
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+   
+    margin-bottom: 20px;
+  color: var(--font);
   padding: 1em;
 }
 

@@ -175,7 +175,7 @@ button:focus-visible {
 }
 
 .sticky {
-  margin-top: 20vh; 
+  margin-top: 12vh; 
 }
 
 .zones-plus {
@@ -260,6 +260,9 @@ button:focus-visible {
     padding: 0;
   }
 
+  .sticky {
+    margin-top: 10vh; 
+  }
 
 .my-zones h4,
 .my-zones h5 {
