@@ -90,7 +90,8 @@ function App() {
     <>
       {loggedIn ? (
         <div>
-          <div className="sticky">
+          <div 
+          className="sticky">
             <System userData={userData} />
             </div>
           <div className="main-grid">

@@ -15,22 +15,18 @@ const System = ({
 
   return (
     <div className="system-container">
-      <div className="system-image-border">
-        <img className="system-image" src={systemImg} alt={systemName} />
-      </div>
+      
       {/* <h4 className="city">{state}</h4> */}
       <h4 className="system-name">
        
         {city} {state} {weather} {temp}°<br></br>
         {formattedDate}
-        {/* <div>
+        <div>
           {systemName}
-        </div> */}
+        </div>
       </h4>
 
-      <a href="/" className="logout">
-        Logout
-      </a>
+     
     </div>
   );
 };

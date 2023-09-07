@@ -7,7 +7,7 @@
     border: 1px solid var(--border);
     width: 100%;
  
-    border-radius: 5px;
+    border-radius: 12px;
 
 }
 
@@ -35,17 +35,17 @@
 }
 
 .grid-card {
-  background-color: var(--back);
+  background-color: var(--card);
   /* box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1); */
   padding: 0.5em;
   /* border-radius: 12px; */
-  border-radius: 5px;
+  border-radius: 12px;
 
 }
 
 .grid-card:nth-child(1) {
   grid-area: c1;
-  background-color: var(--back);
+  background-color: var(--card);
   color: var(--font);
 }
 
@@ -56,7 +56,7 @@
 
 .grid-card:nth-child(3) {
   grid-area: c3;
-  background-color: var(--back);
+  background-color: var(--card);
   color: var(--font);
   padding: .5em;
 
@@ -96,7 +96,7 @@
 
 .main {
   background-color: var(--high);
-
+  min-width: none;
   display: grid;
   gap: 0.5em;
   grid-template-areas:
@@ -137,6 +137,7 @@
   min-height: 25vh;
   max-width: 100%;
   padding: 0 !important;
+  border-radius: 12px !important;
 }
 
 .square-img img {
@@ -144,6 +145,8 @@
   max-width: 97vw;
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
+
 }
 
 .stack {

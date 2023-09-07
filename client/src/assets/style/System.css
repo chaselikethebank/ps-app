@@ -5,7 +5,7 @@
   background-color: #202123;
   color: #ececf1 !important;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 0.3em 0.7em;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -46,22 +46,17 @@
   flex-direction: column;
 }
 
-.system-image {
-  width: 50px;
-  height: 50px;
-  background-color: #94e1f7;
-  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
-
+.system-img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  position: relative;
-  top: 4px;
-  /* right: 10px; */
+  object-fit: cover; 
 }
 
 .system-image-border {
   width: 58px;
   height: 58px;
-  background-color: #94e1f7;
+  background-color: #94e1f7 !important;
   border-radius: 50%;
   position: relative;
 }
