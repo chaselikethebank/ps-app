@@ -96,6 +96,7 @@ function App() {
             </div>
           <div className="main-grid">
             <ZonesList
+              
               zones={zoneData}
               onSelectZone={handleSelectZone}
               userData={userData}

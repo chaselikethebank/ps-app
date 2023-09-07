@@ -5,7 +5,7 @@ const DashZone = ({ zoneData }) => {
     <div>
       <ul>
         {zoneData.map((zone) => (
-          <li key={zone.id}>
+          <li key={zone.num}>
             Name: {zone.name} Zone #{zone.num} Cycle time: {zone.runTime} Cycles per week: {zone.daysPerWeek}
           </li>
         ))}

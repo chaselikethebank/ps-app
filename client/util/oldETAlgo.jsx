@@ -41,7 +41,7 @@ let monthET = monthETState; //inches
 
   const ETsAsArray = Object.entries(user.cet);
   const filter = ETsAsArray.filter(([key, value]) => typeof value === "string");
-  console.log(ETsAsArray);
+  // console.log(ETsAsArray);
 
   let thisMonthsET = ETsAsArray.filter((item) => {
     let currentMonth = monthsAsStrings[d.getMonth()];

@@ -22,6 +22,8 @@ a {
 }
 a:hover {
   color: #747bff !important;
+  font-size: .9em !important;
+
 }
 
 .blue-hover:hover {
@@ -188,6 +190,11 @@ button:focus-visible {
   border-radius: 12px;
   color: var(--green) !important;
 }
+ .symbol-pad {
+  margin: .25em;
+ }
+
+
 .zones-list {
   color: #ececf1;
   background-color: #202123;
@@ -209,7 +216,7 @@ button:focus-visible {
   cursor: pointer;
   transition: background-color 0.2s;
   padding: 3% 7%;
-
+  font-size: .9em;
   /* box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1); */
   border-radius: 12px;
   margin: 0.3em;

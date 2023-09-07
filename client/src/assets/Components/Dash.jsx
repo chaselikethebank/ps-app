@@ -6,7 +6,7 @@ import DashZone from './DashComponents/DashZone';
 const Dash = ({ zoneData, userData }) => {
   
   const [loading, setLoading] = useState(true);
-  console.log()
+  // console.log()
 
   return (
     <div>

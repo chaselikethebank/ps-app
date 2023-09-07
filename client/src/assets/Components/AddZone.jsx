@@ -48,7 +48,7 @@ const AddZone = ({ oldZoneData, backendUrl, onSubmit }) => {
     const sun = parseInt(zoneData.sun);
     const daysPerWeek = parseInt(zoneData.daysPerWeek);
     const runTime = parseInt(zoneData.runTime);
-    console.log(num, sun, daysPerWeek);
+    // console.log(num, sun, daysPerWeek);
 
     const isDuplicate = oldZoneNums.includes(parseInt(zoneData.num));
 
@@ -57,20 +57,14 @@ const AddZone = ({ oldZoneData, backendUrl, onSubmit }) => {
         "That Zone Number already exists in your system. Try selecting a zone number that doesn't already represent a zone in your system."
       );
     } else {
-      console.log("New Data:", {
-        ...zoneData, 
-        num,
-        sun,
-        daysPerWeek,
-        runTime
-      });
-  
-      // onSubmit({
+      // console.log("New Data:", {
       //   ...zoneData, 
       //   num,
       //   sun,
       //   daysPerWeek,
+      //   runTime
       // });
+  
 
       setZoneData({
         num: "",

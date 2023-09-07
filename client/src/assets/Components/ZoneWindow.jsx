@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import "../style/window.css";
 import "../style/barchart.css";
 import "../style/dash.css";
@@ -11,7 +12,12 @@ import { useState } from "react";
 import ZoneSnippets from "./ZoneSnippets";
 import Dash from "./Dash";
 
-const ZoneWindow = ({ selectedZone, zoneData, userData }) => {
+const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
+  const backendUrl = "http://localhost:3001";
+  const [ETData, setETData] = useState(null);
+  const [userET, setUserET] = useState('Austin');
+
+
   const [chartData, setChartData] = useState({
     labels: zoneData.map((zone) => zone.num),
     datasets: [
@@ -28,6 +34,32 @@ const ZoneWindow = ({ selectedZone, zoneData, userData }) => {
       },
     ],
   });
+  // console.log(backendUrl)
+
+
+  useEffect(() => {
+
+    fetchETData();
+    pullUsersET()
+  }, []);
+
+  const fetchETData = async () => {
+    try {
+      const res = await fetch(`${backendUrl}/api/ETdata`);
+      const data = await res.json();
+      setETData(data);
+    } catch (error) {
+      console.error("Error fetching zone data:", error);
+    }
+  };
+
+  const pullUsersET = async () => { 
+    //loop through the ETData and return the monthly ET for the user's city
+    try { await fetchETData()
+    console.log(ETData)
+  } catch (err){
+    console.log(err, 'error in pullUsersET')
+  }}
 
   if (!selectedZone) {
     return (
@@ -36,8 +68,8 @@ const ZoneWindow = ({ selectedZone, zoneData, userData }) => {
       </div>
     );
   }
-  console.log([zoneData]);
-  console.log(selectedZone.runTime, "min");
+
+
 
   return (
     <div className="main">
