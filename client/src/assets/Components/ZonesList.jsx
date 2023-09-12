@@ -6,10 +6,12 @@ import {
   VscGraph,
   VscCircleLarge,
   VscSymbolOperator,
-  VscKey,
+  VscIndent,
+  VscDebugStop,
   VscSymbolMisc,
   VscSettings,
   VscTypeHierarchy,
+  VscClose,
   VscAccount,
 } from "react-icons/vsc";
 import "../style/System.css";
@@ -21,9 +23,22 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
   // console.log(userData[0].systemName);
   return (
     <div className="zones-plus">
+     
       <div className="my-zones"><h3>
-        <VscAccount />
+        <VscAccount /> 
         </h3>
+
+        <div className="">
+      
+      <h4 className="city">{userData[0].state}</h4>
+      <h4 className="">
+       
+        {userData[0].city} {userData[0].state} {userData[0].weather} {userData[0].temp}°<br></br>
+        {userData.formattedDate}
+        <div>
+        {userData[0].systemName}        </div>
+      </h4>
+    </div>
       </div>
       <div className="zones-list">
         <div className="sect-def"> <VscSymbolMisc className="symbol-pad"/> My Zones  </div>
@@ -57,7 +72,7 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
         <div className="sect-def"> <VscSettings className="symbol-pad"/>My Profile</div>
         <button>
           <a href="/" className="space-between">
-            <VscGraph />
+            <VscDebugStop/>
             Logout
           </a>
         </button>

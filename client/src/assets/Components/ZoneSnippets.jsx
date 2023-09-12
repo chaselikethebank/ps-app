@@ -6,7 +6,10 @@ import { Edit2 } from "react-feather";
 import { GoTrash } from 'react-icons/go';
 
 
-const ZoneSnippets = ({ selectedZone }) => {
+const ZoneSnippets = ({ selectedZone, userET, month }) => {
+  
+
+
   return (
     <div className="data-container">
       <div className="data-block">Run time: {selectedZone.runTime} min</div>
@@ -15,7 +18,7 @@ const ZoneSnippets = ({ selectedZone }) => {
       </div>
       <div className="data-block">Type: {selectedZone.type} zone</div>
       <div className="data-block">Sun Exposure: {selectedZone.sun}%</div>
-      <div className="data-block">Monthly ET Req: 3.4''</div>
+      <div className="data-block">{month}'s ET: {userET}''</div>
       <div className="data-block">$3.55 / month</div>
       <div className="data-block">Desc: {selectedZone.desc}</div>
       <div className="data-block">Notes: {selectedZone.notes}</div>

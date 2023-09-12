@@ -22,7 +22,7 @@ a {
 }
 a:hover {
   color: #747bff !important;
-  font-size: .9em !important;
+  /* font-size: .9em !important; */
 
 }
 
@@ -123,6 +123,7 @@ button:focus-visible {
   box-sizing: border-box;
 
   grid-template-columns: 0.7fr 3fr;
+  min-height: 100vh;
   /* padding-top: 2em; */
 }
 
