@@ -15,6 +15,8 @@ function App() {
   const [zoneData, setZoneData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [addMode, setAddMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+
   const [loggedIn, setLoggedIn] = useState(false);
   const backendUrl = "http://localhost:3001";
 
@@ -26,7 +28,14 @@ function App() {
   const handleSelectZone = (zone) => {
     setSelectedZone(zone);
     setAddMode(false);
+    setEditMode(false);
   };
+
+  const handleEditZoneClick = () => {
+    setEditMode(true); 
+    setSelectedZone(null);
+    console.log("edit mode: " + editMode)
+  }
 
   const fetchUserData = async () => {
     try {
@@ -65,16 +74,34 @@ function App() {
         },
         body: JSON.stringify(newZoneData),
       });
-
       if (!response.ok) {
         throw new Error(`POST request failed with status ${response.status}`);
       }
-
       const responseData = await response.json();
-
       setZoneData([...zoneData, responseData.data]);
     } catch (error) {
       console.error("POST Error:", error);
+    }
+  };
+
+  const handleEditZone = async (editedZoneData) => {
+    try {
+      const response = await fetch(`${backendUrl}/api/zonedata/${editedZoneData.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editedZoneData),
+      });
+      if (!response.ok) {
+        throw new Error(`PUT request failed with status ${response.status}`);
+      }
+      const updatedZoneData = zoneData.map((zone) =>
+        zone.id === editedZoneData.id ? editedZoneData : zone
+      );
+      setZoneData(updatedZoneData);
+    } catch (error) {
+      console.error("PUT Error:", error);
     }
   };
 
@@ -111,7 +138,7 @@ function App() {
                 onSubmit={handleAddZone}
               />
             ) : (
-              <ZoneWindow zoneData={zoneData} selectedZone={selectedZone} userData={userData}/>
+              <ZoneWindow zoneData={zoneData} selectedZone={selectedZone} userData={userData} onEditZoneClick={handleEditZoneClick}/>
             )}
           </div>
           {/* <div className="footer">

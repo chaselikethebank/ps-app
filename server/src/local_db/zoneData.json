@@ -52,7 +52,7 @@
     "name": "Side Patio",
     "img": "https://www.sunset.com/wp-content/uploads/side-yards-dining-pr-0223-1200x600.jpg",
     "sun": 75,
-    "type": "Sprinkler",
+    "type": "spray",
     "daysPerWeek": 3,
     "runTime": 25,
     "desc": "Flat area with mixed soil composition",

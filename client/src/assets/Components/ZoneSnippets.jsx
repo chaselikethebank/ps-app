@@ -5,14 +5,14 @@ import "../style/snippet.css";
 import { Edit2 } from "react-feather";
 import { GoTrash } from 'react-icons/go';
 
-const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime, dripRunTime }) => {
+const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime, dripRunTime, onEditZoneClick }) => {
   const [runtime, setRuntime] = useState(null);
 
   const getRuntime = () => {
     const runtimeMap = {
-      spray: sprayRunTime, // Convert to lowercase here
-      rotor: rotorRunTime, // Convert to lowercase here
-      drip: dripRunTime,   // Convert to lowercase here
+      spray: sprayRunTime, 
+      rotor: rotorRunTime, 
+      drip: dripRunTime,   
     };
 
     let selectedZoneType = selectedZone.type.toLowerCase();
@@ -24,14 +24,14 @@ const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime,
       }
     }
 
-    return null; // Return null instead of logging "return" + runtime
+    return null; 
   };
 
   useEffect(() => {
     setRuntime(getRuntime());
   }, [selectedZone, sprayRunTime, rotorRunTime, dripRunTime]);
 
-  console.log("from zone Snippets, runtime: " + runtime, "spray: " + sprayRunTime, "rotor: " + rotorRunTime, "drip: " + dripRunTime);
+  // console.log("from zone Snippets, runtime: " + runtime, "spray: " + sprayRunTime, "rotor: " + rotorRunTime, "drip: " + dripRunTime);
 
   return (
     <div className="data-container">
@@ -46,7 +46,7 @@ const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime,
       <div className="data-block">Desc: {selectedZone.desc}</div>
       <div className="data-block">Notes: {selectedZone.notes}</div>
       <div className="change-snippet-container ">
-        <button className="change-snippet">
+        <button onClick={onEditZoneClick} className="change-snippet">
           <Edit2 size={16} />
         </button>
         <button className="change-snippet">

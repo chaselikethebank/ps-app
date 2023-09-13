@@ -12,7 +12,7 @@ import { useState } from "react";
 import ZoneSnippets from "./ZoneSnippets";
 import Dash from "./Dash";
 
-const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
+const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick}) => {
   const backendUrl = "http://localhost:3001";
   const [ETData, setETData] = useState();
   const [userET, setUserET] = useState('Austin');
@@ -86,7 +86,7 @@ const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
       let currentMonth = monthNames[currentMonthIndex];
       const thisMonthsET = usersET[0][currentMonth];
 
-      console.log(currentMonth, thisMonthsET);
+      // console.log(currentMonth, thisMonthsET);
       setUserET(thisMonthsET);
       setMonth(currentMonth);
       getSprayRunTime();
@@ -136,12 +136,9 @@ const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
         <img src={selectedZone.img} />
       </div>
       <div className="grid-card ">
-        <ZoneSnippets selectedZone={selectedZone} userET={userET} month={month} sprayRunTime={sprayRunTime} rotorRunTime={rotorRunTime} dripRunTime={dripRunTime}/>
+        <ZoneSnippets onEditZoneClick={onEditZoneClick} selectedZone={selectedZone} userET={userET} month={month} sprayRunTime={sprayRunTime} rotorRunTime={rotorRunTime} dripRunTime={dripRunTime}/>
       </div>
-{/* 
-      <div className="grid-card ">
-       
-      </div> */}
+
 
      
     </div>
