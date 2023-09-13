@@ -23,25 +23,26 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
   // console.log(userData[0].systemName);
   return (
     <div className="zones-plus">
-     
-      <div className="my-zones"><h3>
-        <VscAccount /> 
+      <div className="my-zones">
+        <h3>
+          <VscAccount />
         </h3>
 
         <div className="">
-      
-      <h4 className="city">{userData[0].state}</h4>
-      <h4 className="">
-       
-        {userData[0].city} {userData[0].state} {userData[0].weather} {userData[0].temp}°<br></br>
-        {userData.formattedDate}
-        <div>
-        {userData[0].systemName}        </div>
-      </h4>
-    </div>
+          <h4 className="city">{userData[0].state}</h4>
+          <h4 className="">
+            {userData[0].city} {userData[0].state} {userData[0].weather}{" "}
+            {userData[0].temp}°<br></br>
+            {userData.formattedDate}
+            <div>{userData[0].systemName} </div>
+          </h4>
+        </div>
       </div>
       <div className="zones-list">
-        <div className="sect-def"> <VscSymbolMisc className="symbol-pad"/> My Zones  </div>
+        <div className="sect-def">
+          {" "}
+          <VscSymbolMisc className="symbol-pad" /> My Zones{" "}
+        </div>
 
         {zones.map((zone) => (
           <div
@@ -53,13 +54,16 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
             {zone.name}
           </div>
         ))}
-<button onClick={onAddZoneClick} className="space-between blue-hover">
+        <button onClick={onAddZoneClick} className="space-between blue-hover">
           <VscExtensions />
           Add Zone
         </button>
         {/* <div className='zones-item' onClick={onAddZoneClick}> <a href="/zones/add">+ Zone </a> </div> */}
-        <div className="sect-def"><VscTypeHierarchy className="symbol-pad"/>My System </div>
-        
+        <div className="sect-def">
+          <VscTypeHierarchy className="symbol-pad" />
+          My System{" "}
+        </div>
+
         <button onClick={onDashboardClick} className="space-between blue-hover">
           <VscGraph />
           Dashboard
@@ -69,10 +73,14 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
             <VscSymbolOperator /> Consumption
           </a>
         </button>
-        <div className="sect-def"> <VscSettings className="symbol-pad"/>My Profile</div>
+        <div className="sect-def">
+          {" "}
+          <VscSettings className="symbol-pad" />
+          My Profile
+        </div>
         <button>
           <a href="/" className="space-between">
-            <VscDebugStop/>
+            <VscDebugStop />
             Logout
           </a>
         </button>
@@ -87,7 +95,7 @@ const ZonesList = ({ zones, onSelectZone, userData, onAddZoneClick }) => {
           />
           <a href="/profile">
             {userData[0].systemName.length > 13
-              ? userData[0].systemName.slice(0,13) + "..."
+              ? userData[0].systemName.slice(0, 13) + "..."
               : userData[0].systemName}
           </a>
         </div>

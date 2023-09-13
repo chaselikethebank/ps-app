@@ -1,18 +1,41 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import "../style/window.css";
 import "../style/index.css";
 import "../style/snippet.css";
 import { Edit2 } from "react-feather";
 import { GoTrash } from 'react-icons/go';
 
+const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime, dripRunTime }) => {
+  const [runtime, setRuntime] = useState(null);
 
-const ZoneSnippets = ({ selectedZone, userET, month }) => {
-  
+  const getRuntime = () => {
+    const runtimeMap = {
+      spray: sprayRunTime, // Convert to lowercase here
+      rotor: rotorRunTime, // Convert to lowercase here
+      drip: dripRunTime,   // Convert to lowercase here
+    };
 
+    let selectedZoneType = selectedZone.type.toLowerCase();
+
+    if (selectedZoneType === "spray" || selectedZone.type === "rotor" || selectedZone.type === "drip"    ) {
+      const runtime = runtimeMap[selectedZoneType];
+      if (runtime !== undefined) {
+        return runtime;
+      }
+    }
+
+    return null; // Return null instead of logging "return" + runtime
+  };
+
+  useEffect(() => {
+    setRuntime(getRuntime());
+  }, [selectedZone, sprayRunTime, rotorRunTime, dripRunTime]);
+
+  console.log("from zone Snippets, runtime: " + runtime, "spray: " + sprayRunTime, "rotor: " + rotorRunTime, "drip: " + dripRunTime);
 
   return (
     <div className="data-container">
-      <div className="data-block">Run time: {selectedZone.runTime} min</div>
+      <div className="data-block">Run time: {runtime} min</div>
       <div className="data-block">
         Cycles per week: {selectedZone.daysPerWeek}
       </div>

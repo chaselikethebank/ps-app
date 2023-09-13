@@ -17,9 +17,9 @@ const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
   const [ETData, setETData] = useState();
   const [userET, setUserET] = useState('Austin');
   const [month, setMonth] = useState('July');
-  const [sprayRunTime, setSprayRunTime] = useState(0);
-  const [rotorRunTime, setRotorRunTime] = useState(0);
-  const [dripRunTime, setDripRunTime] = useState(0);
+  const [sprayRunTime, setSprayRunTime] = useState(5);
+  const [rotorRunTime, setRotorRunTime] = useState(5);
+  const [dripRunTime, setDripRunTime] = useState(5);
 
 
   const monthNames = [
@@ -58,7 +58,7 @@ const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
 
   useEffect(() => {
     fetchETData();
-  }, []);
+  }, [selectedZone]);
   
   const fetchETData = async () => {
     try {
@@ -98,10 +98,15 @@ const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
   };
 
   const getSprayRunTime = () => {
-  console.log(selectedZone)
-  // let spray = ((((userET / 4) / 1.5) * 60) / selectedZone.daysPerWeek).toFixed(0);
-  // console.log(spray)
-  }
+    if (selectedZone) {
+      let spray = ((((userET / 4) / 1.5) * 60) / selectedZone.daysPerWeek).toFixed(0);
+      setSprayRunTime(spray);
+    } else {
+      // Handle the case when selectedZone is null
+      setSprayRunTime(0); // or any other default value
+    }
+  };
+  
 
 
   if (!selectedZone) {
@@ -131,7 +136,7 @@ const ZoneWindow = ({ selectedZone, zoneData, userData}) => {
         <img src={selectedZone.img} />
       </div>
       <div className="grid-card ">
-        <ZoneSnippets selectedZone={selectedZone} userET={userET} month={month}/>
+        <ZoneSnippets selectedZone={selectedZone} userET={userET} month={month} sprayRunTime={sprayRunTime} rotorRunTime={rotorRunTime} dripRunTime={dripRunTime}/>
       </div>
 {/* 
       <div className="grid-card ">
