@@ -17,7 +17,7 @@ const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime,
 
     let selectedZoneType = selectedZone.type.toLowerCase();
 
-    if (selectedZoneType === "spray" || selectedZone.type === "rotor" || selectedZone.type === "drip"    ) {
+    if (selectedZoneType === "spray" || selectedZoneType === "rotor" || selectedZoneType === "drip"    ) {
       const runtime = runtimeMap[selectedZoneType];
       if (runtime !== undefined) {
         return runtime;
@@ -31,7 +31,7 @@ const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime,
     setRuntime(getRuntime());
   }, [selectedZone, sprayRunTime, rotorRunTime, dripRunTime]);
 
-  // console.log("from zone Snippets, runtime: " + runtime, "spray: " + sprayRunTime, "rotor: " + rotorRunTime, "drip: " + dripRunTime);
+  console.log("from zone Snippets, runtime: " + runtime, "spray: " + sprayRunTime, "rotor: " + rotorRunTime, "drip: " + dripRunTime);
 
   return (
     <div className="data-container">

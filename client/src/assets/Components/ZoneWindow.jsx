@@ -89,23 +89,28 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick}) => {
       // console.log(currentMonth, thisMonthsET);
       setUserET(thisMonthsET);
       setMonth(currentMonth);
-      getSprayRunTime();
-      // getRotorRunTime();
-      // getDripRunTime();
+      getRunTime();
     } else {
       console.log("ETData is null");
     }
   };
 
-  const getSprayRunTime = () => {
+  const getRunTime = () => {
     if (selectedZone) {
-      let spray = ((((userET / 4) / 1.5) * 60) / selectedZone.daysPerWeek).toFixed(0);
-      setSprayRunTime(spray);
-    } else {
-      // Handle the case when selectedZone is null
-      setSprayRunTime(0); // or any other default value
+      let selectedZoneType = selectedZone.type.toLowerCase();
+      if (selectedZoneType === "spray") {
+        let spray = ((((userET / 4) / 1.5) * 60) / selectedZone.daysPerWeek).toFixed(0);
+        setSprayRunTime(spray);
+      } else if (selectedZoneType === "rotor") { 
+        let rotor = ((((userET / 4) / 1) * 60) / selectedZone.daysPerWeek).toFixed(0);
+        setRotorRunTime(rotor); 
+      } else if (selectedZoneType === "drip") {
+        let drip = ((((userET / 4) / 0.25) * 60) / selectedZone.daysPerWeek).toFixed(0);
+        setDripRunTime(drip);
+      } 
     }
   };
+  console.log("spray: " + sprayRunTime, "rotor: " + rotorRunTime, "drip: " + dripRunTime)
   
 
 
