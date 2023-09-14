@@ -121,7 +121,9 @@ button:focus-visible {
   margin: 10px; */
   display: grid;
   box-sizing: border-box;
-
+  /* align-items: center; */
+  
+  background-color: var(--back);
   grid-template-columns: 0.7fr 3fr;
   min-height: 100vh;
   /* padding-top: 2em; */

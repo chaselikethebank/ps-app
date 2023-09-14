@@ -108,6 +108,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.2fr 1fr 1fr 2fr 1fr;
   padding: 0.5em;
+  align-items: center;
 }
 
 .negi-change {

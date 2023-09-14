@@ -4,9 +4,12 @@ import "../style/index.css";
 import "../style/snippet.css";
 import { Edit2 } from "react-feather";
 import { GoTrash } from 'react-icons/go';
+import EditZone  from "./Modals/EditZone";
 
-const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime, dripRunTime, onEditZoneClick }) => {
+const ZoneSnippets = ({ zoneData, selectedZone, userET, month, sprayRunTime, rotorRunTime, dripRunTime, onEditZoneClick }) => {
   const [runtime, setRuntime] = useState(null);
+  const [modalIsOpen, setIsOpen] = useState(false); 
+
 
   const getRuntime = () => {
     const runtimeMap = {
@@ -31,7 +34,14 @@ const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime,
     setRuntime(getRuntime());
   }, [selectedZone, sprayRunTime, rotorRunTime, dripRunTime]);
 
-  console.log("from zone Snippets, runtime: " + runtime, "spray: " + sprayRunTime, "rotor: " + rotorRunTime, "drip: " + dripRunTime);
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
 
   return (
     <div className="data-container">
@@ -46,13 +56,22 @@ const ZoneSnippets = ({ selectedZone, userET, month, sprayRunTime, rotorRunTime,
       <div className="data-block">Desc: {selectedZone.desc}</div>
       <div className="data-block">Notes: {selectedZone.notes}</div>
       <div className="change-snippet-container ">
-        <button onClick={onEditZoneClick} className="change-snippet">
+        <button onClick={openModal} className="change-snippet">
           <Edit2 size={16} />
         </button>
         <button className="change-snippet">
           <GoTrash size={16} />
         </button>
       </div>
+
+      {modalIsOpen && (
+        <EditZone
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+        selectedZone={selectedZone}
+        zoneData={zoneData}
+      />
+      )}
     </div>
   );
 };

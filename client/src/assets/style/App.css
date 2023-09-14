@@ -6,6 +6,8 @@
   /* min-width: 100vw; */
   /* padding: 2rem; */
   text-align: center;
+  padding-top: 4em;
+  background-color: var(--back);
 }
 
 .logo:hover {
