@@ -4,6 +4,7 @@ import "../style/window.css";
 import "../style/barchart.css";
 import "../style/dash.css";
 import "../style/snippet.css";
+import axios from "axios";
 
 import { Chart } from "chart.js";
 import { Bar } from "recharts";
@@ -20,6 +21,30 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
   const [sprayRunTime, setSprayRunTime] = useState(5);
   const [rotorRunTime, setRotorRunTime] = useState(5);
   const [dripRunTime, setDripRunTime] = useState(5);
+  const [ETDataAirtable, setETDataAirtable] = useState();
+
+  useEffect(() => {
+    const airTableURL =
+      "https://api.airtable.com/v0/appFkJKWLKJo8Go47/Imported%20table?maxRecords=100&view=Grid%20view";
+    const bearerToken =
+      "patmdYbW280PO4iD6.a496ca4b7c4d143d63943d4e92240b6e9ecb2a19b5b7f01306c497114222ce2d";
+
+    axios
+      .get(airTableURL, {
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+        },
+      })
+      .then((response) => {
+        // console.log(response.data.records);
+        setETDataAirtable(response.data.records);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  // console.log(ETData)
 
   const monthNames = [
     "January",
@@ -52,7 +77,6 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
       },
     ],
   });
-  // console.log(backendUrl)
 
   useEffect(() => {
     fetchETData();
@@ -70,28 +94,55 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
 
   useEffect(() => {
     if (ETData) {
-      pullUsersET();
+      pullETFromAirtable();
     }
   }, [ETData]);
-
-  const pullUsersET = () => {
-    if (ETData) {
-      let userCity = userData[0].city;
-      let usersET = ETData.filter((city) => city.city === userCity);
-      // console.log(usersET);
-
-      const currentMonthIndex = new Date().getMonth();
-      let currentMonth = monthNames[currentMonthIndex];
-      const thisMonthsET = usersET[0][currentMonth];
-
-      // console.log(currentMonth, thisMonthsET);
-      setUserET(thisMonthsET);
-      setMonth(currentMonth);
-      getRunTime();
+  
+  const pullETFromAirtable = () => {
+    if (ETDataAirtable && userData && ETDataAirtable.length > 0 && userData.length > 0) {
+      const userCityAirtable = userData[0].city;
+      const usersETAirtable = ETDataAirtable.filter(
+        (region) => region.fields.city === userCityAirtable
+      );
+  
+      if (usersETAirtable.length > 0) {
+        const currentMonthIndex = new Date().getMonth();
+        const currentMonth = monthNames[currentMonthIndex];
+        const thisMonthsET = usersETAirtable[0].fields[currentMonth];
+  
+        console.log(usersETAirtable);
+        console.log(currentMonth, thisMonthsET);
+  
+        setUserET(thisMonthsET);
+        setMonth(currentMonth);
+        getRunTime();
+      } else {
+        console.log("No data found for the user's city in Airtable.");
+      }
     } else {
-      console.log("ETData is null");
+      console.log("ETDataAirtable or userData is null or empty.");
     }
   };
+  
+
+  // const pullUsersETLocal = () => {
+  //   if (ETData) {
+  //     let userCity = userData[0].city;
+  //     let usersET = ETData.filter((city) => city.city === userCity);
+  //     // console.log(usersET);
+
+  //     const currentMonthIndex = new Date().getMonth();
+  //     let currentMonth = monthNames[currentMonthIndex];
+  //     const thisMonthsET = usersET[0][currentMonth];
+
+  //     // console.log(currentMonth, thisMonthsET);
+  //     setUserET(thisMonthsET);
+  //     setMonth(currentMonth);
+  //     getRunTime();
+  //   } else {
+  //     console.log("ETData is null");
+  //   }
+  // };
 
   const getRunTime = () => {
     let monthET = userET;
@@ -100,7 +151,7 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
 
     if (selectedZone) {
       let sun = (selectedZone.sun * 0.05).toFixed(0);
-      console.log("sun: +" + sun);
+      // console.log("sun: +" + sun);
 
       let selectedZoneType = selectedZone.type.toLowerCase();
       if (selectedZoneType === "spray") {
@@ -122,11 +173,11 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
       }
     }
   };
-  console.log(
-    "spray: " + sprayRunTime,
-    "rotor: " + rotorRunTime,
-    "drip: " + dripRunTime
-  );
+  // console.log(
+  //   "spray: " + sprayRunTime,
+  //   "rotor: " + rotorRunTime,
+  //   "drip: " + dripRunTime
+  // );
 
   if (!selectedZone) {
     return (
