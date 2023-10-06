@@ -1,0 +1,1 @@
+using mysql locally to build out the mvp for the front end
