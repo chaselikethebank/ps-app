@@ -21,28 +21,28 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
   const [sprayRunTime, setSprayRunTime] = useState(5);
   const [rotorRunTime, setRotorRunTime] = useState(5);
   const [dripRunTime, setDripRunTime] = useState(5);
-  const [ETDataAirtable, setETDataAirtable] = useState();
+  // const [ETDataAirtable, setETDataAirtable] = useState();
 
-  useEffect(() => {
-    const airTableURL =
-      "https://api.airtable.com/v0/appFkJKWLKJo8Go47/Imported%20table?maxRecords=100&view=Grid%20view";
-    const bearerToken =
-      "patmdYbW280PO4iD6.a496ca4b7c4d143d63943d4e92240b6e9ecb2a19b5b7f01306c497114222ce2d";
+  // useEffect(() => {
+  //   const airTableURL =
+  //     "https://api.airtable.com/v0/appFkJKWLKJo8Go47/Imported%20table?maxRecords=100&view=Grid%20view";
+  //   const bearerToken =
+  //     "patmdYbW280PO4iD6.a496ca4b7c4d143d63943d4e92240b6e9ecb2a19b5b7f01306c497114222ce2d";
 
-    axios
-      .get(airTableURL, {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      })
-      .then((response) => {
-        // console.log(response.data.records);
-        setETDataAirtable(response.data.records);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  //   axios
+  //     .get(airTableURL, {
+  //       headers: {
+  //         Authorization: `Bearer ${bearerToken}`,
+  //       },
+  //     })
+  //     .then((response) => {
+  //       // console.log(response.data.records);
+  //       setETDataAirtable(response.data.records);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
   // console.log(ETData)
 
@@ -86,6 +86,7 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
     try {
       const res = await fetch(`${backendUrl}/api/ETdata`);
       const data = await res.json();
+      console.log(data)
       setETData(data);
     } catch (error) {
       console.error("Error fetching zone data:", error);
@@ -130,7 +131,7 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
     if (ETData) {
       let userCity = userData[0].city;
       let usersET = ETData.filter((city) => city.city === userCity);
-      // console.log(usersET);
+      console.log(usersET);
 
       const currentMonthIndex = new Date().getMonth();
       let currentMonth = monthNames[currentMonthIndex];

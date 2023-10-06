@@ -175,7 +175,8 @@ button:focus-visible {
 .zones-plus {
   min-height: 89vh;
   background-color: #202123;
-  max-width: 25vw;
+  /* max-width: 25vw; */
+  padding: .2rem
 }
 
 .sect-def {
