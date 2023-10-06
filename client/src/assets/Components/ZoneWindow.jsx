@@ -14,7 +14,7 @@ import ZoneSnippets from "./ZoneSnippets";
 import Dash from "./Dash";
 
 const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
-  const backendUrl = "http://localhost:3001";
+  const backendUrl = "http://localhost:3006";
   const [ETData, setETData] = useState();
   const [userET, setUserET] = useState("Austin");
   const [month, setMonth] = useState("July");
@@ -94,60 +94,61 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
 
   useEffect(() => {
     if (ETData) {
-      pullETFromAirtable();
+      // pullETFromAirtable();
+      pullUsersETLocal();
     }
   }, [ETData]);
   
-  const pullETFromAirtable = () => {
-    if (ETDataAirtable && userData && ETDataAirtable.length > 0 && userData.length > 0) {
-      const userCityAirtable = userData[0].city;
-      const usersETAirtable = ETDataAirtable.filter(
-        (region) => region.fields.city === userCityAirtable
-      );
+  // const pullETFromAirtable = () => {
+  //   if (ETDataAirtable && userData && ETDataAirtable.length > 0 && userData.length > 0) {
+  //     const userCityAirtable = userData[0].city;
+  //     const usersETAirtable = ETDataAirtable.filter(
+  //       (region) => region.fields.city === userCityAirtable
+  //     );
   
-      if (usersETAirtable.length > 0) {
-        const currentMonthIndex = new Date().getMonth();
-        const currentMonth = monthNames[currentMonthIndex];
-        const thisMonthsET = usersETAirtable[0].fields[currentMonth];
+  //     if (usersETAirtable.length > 0) {
+  //       const currentMonthIndex = new Date().getMonth();
+  //       const currentMonth = monthNames[currentMonthIndex];
+  //       const thisMonthsET = usersETAirtable[0].fields[currentMonth];
   
-        console.log(usersETAirtable);
-        console.log(currentMonth, thisMonthsET);
+  //       console.log(usersETAirtable);
+  //       console.log(currentMonth, thisMonthsET);
   
-        setUserET(thisMonthsET);
-        setMonth(currentMonth);
-        getRunTime();
-      } else {
-        console.log("No data found for the user's city in Airtable.");
-      }
-    } else {
-      console.log("ETDataAirtable or userData is null or empty.");
-    }
-  };
-  
-
-  // const pullUsersETLocal = () => {
-  //   if (ETData) {
-  //     let userCity = userData[0].city;
-  //     let usersET = ETData.filter((city) => city.city === userCity);
-  //     // console.log(usersET);
-
-  //     const currentMonthIndex = new Date().getMonth();
-  //     let currentMonth = monthNames[currentMonthIndex];
-  //     const thisMonthsET = usersET[0][currentMonth];
-
-  //     // console.log(currentMonth, thisMonthsET);
-  //     setUserET(thisMonthsET);
-  //     setMonth(currentMonth);
-  //     getRunTime();
+  //       setUserET(thisMonthsET);
+  //       setMonth(currentMonth);
+  //       getRunTime();
+  //     } else {
+  //       console.log("No data found for the user's city in Airtable.");
+  //     }
   //   } else {
-  //     console.log("ETData is null");
+  //     console.log("ETDataAirtable or userData is null or empty.");
   //   }
   // };
+  
+
+  const pullUsersETLocal = () => {
+    if (ETData) {
+      let userCity = userData[0].city;
+      let usersET = ETData.filter((city) => city.city === userCity);
+      // console.log(usersET);
+
+      const currentMonthIndex = new Date().getMonth();
+      let currentMonth = monthNames[currentMonthIndex];
+      const thisMonthsET = usersET[0][currentMonth];
+
+      // console.log(currentMonth, thisMonthsET);
+      setUserET(thisMonthsET);
+      setMonth(currentMonth);
+      getRunTime();
+    } else {
+      console.log("ETData is null");
+    }
+  };
 
   const getRunTime = () => {
     let monthET = userET;
     let cropET = (monthET * 0.65).toFixed(2);
-    let weekET = (cropET / 4.2).toFixed(2);
+    let weekET = (cropET / 4.3).toFixed(2);
 
     if (selectedZone) {
       let sun = (selectedZone.sun * 0.05).toFixed(0);
@@ -194,7 +195,7 @@ const ZoneWindow = ({ selectedZone, zoneData, userData, onEditZoneClick }) => {
 
   return (
     <div className="main">
-      <div className="grid-card  ">
+      <div className="grid-card">
         <div className="zone-num data-container">
           <div className="data-blocks space-between">
             <div>Zone {selectedZone.num} </div>

@@ -19,6 +19,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // mongoose.connection()
+
 app.get('/api/zoneData', (req, res) => res.json(zoneData));
 app.get('/api/userData', (req, res) => res.json(userData));
 app.get('/api/ETData', (req, res) => res.json(ETData));
@@ -35,6 +36,30 @@ app.post('/api/zoneData', (req, res) => {
     res.json({ message: 'Data added successfully', data: newData });
   } catch (error) {
     console.error('Error writing JSON file:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.put('/api/zoneData/:id', (req, res) => {
+  try {
+    const zoneId = req.params.id;
+    const updatedData = req.body;
+    
+    const zoneIndex = zoneData.findIndex((zone) => zone.num === zoneId);
+    
+    if (zoneIndex === -1) {
+      return res.status(404).json({ error: 'Zone not found' });
+    }
+    zoneData[zoneIndex] = {
+      ...zoneData[zoneIndex], 
+      ...updatedData, 
+    };
+    
+    fs.writeFileSync(zoneDataPath, JSON.stringify(zoneData, null, 2));
+    
+    res.json({ message: 'Zone data updated successfully', data: zoneData[zoneIndex] });
+  } catch (error) {
+    console.error('Error updating JSON file:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

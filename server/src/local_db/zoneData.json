@@ -70,5 +70,17 @@
     "desc": "A bit of a slope, sandy clay soil",
     "notes": "anything over 20 min tends to runoff",
     "emoji": "🌼"
+  },
+  {
+    "num": 7,
+    "name": "back beds #2",
+    "img": "https://www.lawnstarter.com/blog/wp-content/uploads/2019/12/rsz_1beautiful-luxury-home-g51ec1a6c6_1920.jpg",
+    "sun": 20,
+    "type": "spray",
+    "daysPerWeek": 4,
+    "runTime": "",
+    "desc": "",
+    "notes": "",
+    "emoji": "🌸"
   }
 ]

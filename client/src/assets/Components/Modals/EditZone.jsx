@@ -17,8 +17,11 @@ const customStyles = {
     border: "none",
     borderRadius: "10px",
     maxWidth: "1000px",
+    maxHeight: "90vh",
   },
 };
+
+Modal.setAppElement('#root')
 
 function EditZone({ zoneData, modalIsOpen, closeModal, selectedZone }) {
     const [error, setError] = useState("");
@@ -66,6 +69,7 @@ function EditZone({ zoneData, modalIsOpen, closeModal, selectedZone }) {
   );
 
   return (
+    <div className="edit-modal">
     <Modal
       isOpen={modalIsOpen}
       onAfterOpen={() => console.log("Modal state has changed!")}
@@ -226,6 +230,7 @@ function EditZone({ zoneData, modalIsOpen, closeModal, selectedZone }) {
         </form>
       </div>
     </Modal>
+    </div>
   );
 }
 

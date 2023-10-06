@@ -18,7 +18,7 @@ function App() {
   const [editMode, setEditMode] = useState(false);
 
   const [loggedIn, setLoggedIn] = useState(false);
-  const backendUrl = "http://localhost:3001";
+  const backendUrl = "http://localhost:3006";
 
   const handleAddZoneClick = () => {
     setAddMode(true);
