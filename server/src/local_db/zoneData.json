@@ -82,5 +82,17 @@
     "desc": "",
     "notes": "",
     "emoji": "🌸"
+  },
+  {
+    "num": 8,
+    "name": "bbb",
+    "img": "https://www.lawnstarter.com/blog/wp-content/uploads/2019/12/rsz_1beautiful-luxury-home-g51ec1a6c6_1920.jpg",
+    "sun": 60,
+    "type": "spray",
+    "daysPerWeek": 4,
+    "runTime": "",
+    "desc": "as",
+    "notes": "fd",
+    "emoji": "💐"
   }
 ]
