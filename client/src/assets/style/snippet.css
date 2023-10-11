@@ -30,10 +30,10 @@
   }
   
   .data-block {
-    background-color: var(--card);
-    color: var(--font);
+    background-color: var(--white);
+    color: var(--font-dark);
     padding: .5em;
-    border: 1px solid var(--border);
+    /* border: 1px solid var(--border); */
     border-radius: 12px;
     width: calc(100%); 
     height: calc(20%);
@@ -41,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
   }
   
   .left {

@@ -1,12 +1,12 @@
 @import "./colors.css";
 
 .data-blocks{
-  background-color: var(--card);
-    color: var(--font);
+  background-color: var(--white);
+    color: var(--dark-font);
     padding: .5em;
-    border: 1px solid var(--border);
+    /* border: 1px solid var(--border); */
     width: 100%;
- 
+    box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
     border-radius: 12px;
 
 }
@@ -35,7 +35,7 @@
 }
 
 .grid-card {
-  background-color: var(--card);
+  background-color: var(--background-color);
   /* box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1); */
   padding: 0.5em;
   /* border-radius: 12px; */
@@ -45,8 +45,8 @@
 
 .grid-card:nth-child(1) {
   grid-area: c1;
-  background-color: var(--card);
-  color: var(--font);
+  background-color: var(--background-color);
+  color: var(--font-dark);
 }
 
 .grid-card:nth-child(2) {
@@ -56,7 +56,7 @@
 
 .grid-card:nth-child(3) {
   grid-area: c3;
-  background-color: var(--card);
+  background-color: var(--background-white);
   color: var(--font);
   padding: .5em;
 
@@ -95,7 +95,7 @@
 }
 
 .main {
-  background-color: var(--back);
+  background-color: var(--background-color);
   min-width: none;
   display: grid;
   gap: 0.5em;
@@ -141,6 +141,7 @@
   max-width: 100%;
   padding: 0 !important;
   border-radius: 12px !important;
+  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.1);
 }
 
 .square-img img {

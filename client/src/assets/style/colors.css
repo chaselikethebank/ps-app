@@ -1,14 +1,18 @@
 :root {
-  
+  --white: #fff;
+    --background-color: #f7f7f8;
     --back: #202123;
     --high: #37373d;
     --ground: #3a3a3f;
     --code: #1f1f1f;
     --hover: #2c2d30;
     --card: #2a2e35;
+    --card-light: #e9eaed;;
     --green: #45bfa4;
     --blue: #424497;
     --font: #d0d4df;
+    --dark-font: #202123;
+    --font-dark: #202123;
     --border: #4d4d4f;
     --git-blue: #1f6feb;
     --git-green: #40b951;

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const DashWeather = ({ userData }) => {
   const [weatherData, setWeatherData] = useState(null);
   const [fiveDay, setFiveDay] = useState(null)
-  const API_KEY = "9eac51fee00a6f085485a74395484f9a";
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const [cityName, setCityName ] = useState(userData[0].city) //note this is the city for the api fetch
 
 
